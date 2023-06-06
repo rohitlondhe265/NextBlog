@@ -4,7 +4,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  // const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  //   cache: "no-store",
+  // });
+
+  const res = await fetch(`${process.env.API_BASE_URL}/posts/${id}`, {
     cache: "no-store",
   });
 
@@ -57,7 +61,7 @@ const BlogPost = async ({ params }) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-         {data.content}
+          {data.content}
         </p>
       </div>
     </div>
