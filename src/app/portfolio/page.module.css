@@ -1,5 +1,6 @@
 .mainTitle {
-  font-size: 100px;
+  color: var(--text-secondary);
+  font-size: 6rem;
 }
 
 .container {
@@ -11,16 +12,19 @@
 
 .items {
   display: flex;
-  gap: 50px;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .item {
-  border: 5px solid #bbb;
-  border-radius: 5px;
   width: 300px;
   height: 400px;
   position: relative;
   background-size: cover !important;
+  box-shadow: 0px 0px 12px var(--border);
+  border-radius: 8px;
+  background-color: var(--form-bg);
 }
 
 .item:nth-child(1) {
@@ -43,4 +47,18 @@
 
 .item:hover .title {
   color: #53c28b;
+}
+
+@media screen and (max-width:940px) {
+  .mainTitle {
+    color: var(--text-secondary);
+    font-size: 3rem;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

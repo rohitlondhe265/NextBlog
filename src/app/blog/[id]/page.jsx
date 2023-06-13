@@ -9,7 +9,22 @@ async function getData(id) {
   // });
 
   const res = await fetch(`${process.env.API_BASE_URL}/posts/${id}`, {
-    cache: "no-store",
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    return notFound()
+  }
+
+  return res.json();
+}
+async function getPosts() {
+  // const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  //   cache: "no-store",
+  // });
+
+  const res = await fetch(`${process.env.API_BASE_URL}/posts/`, {
+    next: { revalidate: 10 },
   });
 
   if (!res.ok) {
@@ -19,10 +34,21 @@ async function getData(id) {
   return res.json();
 }
 
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  if (!posts) return [];
+  return posts.map((post) => ({
+    id: post._id,
+  }))
+}
 
 export async function generateMetadata({ params }) {
-
-  const post = await getData(params.id)
+  const post = await getData(params.id);
+  if (!post) {
+    return {
+      title: 'Post Not Found'
+    }
+  }
   return {
     title: post.title,
     description: post.desc,
@@ -31,6 +57,7 @@ export async function generateMetadata({ params }) {
 
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
+  if (!data) notFound();
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -60,9 +87,9 @@ const BlogPost = async ({ params }) => {
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>
-          {data.content}
-        </p>
+        <div className={styles.text}
+          dangerouslySetInnerHTML={{ __html: data.content }}
+        />
       </div>
     </div>
   );

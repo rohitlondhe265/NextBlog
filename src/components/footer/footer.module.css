@@ -1,9 +1,11 @@
 .container {
-  height: 50px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 6rem;
 }
 
 .social {

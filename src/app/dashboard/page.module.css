@@ -17,7 +17,7 @@
 .imgContainer {
   width: 200px;
   height: 100px;
-  position: Ū;
+  margin-right: 2rem;
 }
 
 .img {
@@ -27,6 +27,7 @@
 .delete {
   cursor: pointer;
   color: red;
+  margin-left: 1rem;
 }
 
 .new {
@@ -55,4 +56,34 @@
   border-radius: 5px;
   color: #eee;
   font-weight: bold;
+}
+
+@media screen and (max-width:940px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .posts {
+    flex: 1;
+    order: 3;
+  }
+  .post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0px;
+  }
+  .imgContainer {
+    width: 200px;
+    height: 100px;
+    margin-right: 0.5rem;
+  }
+  .delete {
+    margin-left: 3px;
+  }
+
+  .postTitle {
+    font-size: 1rem;
+  }
 }
