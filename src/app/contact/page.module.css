@@ -15,13 +15,11 @@
 
 .imgContainer {
   flex: 1;
-  height: 500px;
-  position: relative;
 }
-
 .image {
+  width: 90%;
   object-fit: contain;
-  /* animation: move 3s infinite ease alternate; */
+  animation: move 3s infinite ease alternate;
 }
 
 @keyframes move {
@@ -50,4 +48,30 @@
   border: 3px solid #bbb;
   font-size: 20px;
   font-weight: bold;
+}
+
+@media screen and (max-width:940px) {
+  .title {
+    font-size: 30px;
+    margin-bottom: 45px;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .imgContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .image {
+    width: 100%;
+    height: 21rem;
+    object-fit: contain;
+    animation: move 3s infinite ease alternate;
+  }
+  
 }

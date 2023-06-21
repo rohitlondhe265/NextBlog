@@ -42,5 +42,5 @@ const Blog = async () => {
     </div>
   );
 };
-
+ 
 export default Blog;

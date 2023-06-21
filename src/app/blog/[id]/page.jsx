@@ -9,7 +9,7 @@ async function getData(id) {
   // });
 
   const res = await fetch(`${process.env.API_BASE_URL}/posts/${id}`, {
-    next: { revalidate: 10 },
+    next: { revalidate: 3600 },
   });
 
   if (!res.ok) {
@@ -24,7 +24,7 @@ async function getPosts() {
   // });
 
   const res = await fetch(`${process.env.API_BASE_URL}/posts/`, {
-    next: { revalidate: 10 },
+    next: { revalidate: 3600 },
   });
 
   if (!res.ok) {
@@ -77,14 +77,13 @@ const BlogPost = async ({ params }) => {
             <span className={styles.username}>{data.username}</span>
           </div>
         </div>
-        <div className={styles.imageContainer}>
-          <Image
-            src={data.img}
-            alt=""
-            fill={true}
-            className={styles.image}
-          />
-        </div>
+        <Image
+          src={data.img}
+          alt="thumbnail"
+          width={600}
+          height={300}
+          className={styles.image}
+        />
       </div>
       <div className={styles.content}>
         <div className={styles.text}

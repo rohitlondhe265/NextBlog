@@ -14,10 +14,9 @@ const Contact = () => {
       <h1 className={styles.title}>Let Keep in Touch</h1>
       <div className={styles.content}>
         <div className={styles.imgContainer}>
-          <Image
+          <img
             src="/contact.png"
             alt=""
-            fill={true}
             className={styles.image}
           />
         </div>

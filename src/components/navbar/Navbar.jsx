@@ -63,24 +63,9 @@ const Navbar = () => {
         )}
       </div>
       <div className={styles.hamburger} onClick={handleClick}>
-        {click ? (<img className={styles.icon} src="/git.png"></img>) : (<img className={styles.icon} src="/linked.jpg"></img>)}
+        {click ? (<img className={styles.icon} src="/close.svg"></img>) : (<img className={styles.icon} src="/menu.svg"></img>)}
       </div>
     </div>
   );
 };
-{/* <div className='navbar'>
-  <div className='container'>
-    <h1><span><BsFillHouseFill />Real</span>Estate</h1>
-    <button className='btn'>Sign In</button>
-    <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-      <li><a href='#'>Home</a></li>
-      <li><a href='#'>Search</a></li>
-      <li><a href='#'>About</a></li>
-      <li><a href='#'>Contact</a></li>
-    </ul>
-    <div className='hamburger' onClick={handleClick}>
-      {click ? (<FaRegTimesCircle className='icon' />) : (<HiOutlineMenuAlt4 className='icon' />)}
-    </div>
-  </div>
-</div> */}
 export default Navbar;
